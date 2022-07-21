@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="587.0" prefWidth="975.0" style="-fx-border-width: 10;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.UsersController">
+   <children>
+      <TableView fx:id="table" layoutX="297.0" layoutY="14.0" onMouseClicked="#selectFromTableOnMouseClicked" prefHeight="548.0" prefWidth="663.0">
+        <columns>
+            <TableColumn fx:id="timage" prefWidth="75.0" text="Image" />
+          <TableColumn fx:id="tbook" prefWidth="100.0" text="Book" />
+          <TableColumn fx:id="tauthor" prefWidth="82.0" text="Author" />
+            <TableColumn fx:id="tcategory" prefWidth="134.0" text="Category" />
+            <TableColumn fx:id="tlanguage" prefWidth="109.0" text="Language" />
+            <TableColumn fx:id="tavailibility" prefWidth="162.0" text="Availibility" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfsearch" layoutX="63.0" layoutY="175.0" onKeyPressed="#search" promptText="Search book" />
+      <Button fx:id="btnissue" layoutX="93.0" layoutY="217.0" mnemonicParsing="false" onAction="#requestIssueBtnAction" text="Request Issue" />
+      <AnchorPane fx:id="apReturnBook" layoutX="33.0" layoutY="288.0" prefHeight="252.0" prefWidth="200.0" style="-fx-border-color: grey; -fx-border-width: 5;">
+         <children>
+            <Button fx:id="BtnReturnBook" layoutX="52.0" layoutY="204.0" mnemonicParsing="false" onAction="#setBtnReturnBook" text="Return Book" />
+            <Label fx:id="labelReturnBook" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="10.0" layoutY="14.0" prefHeight="176.0" prefWidth="181.0" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <Button fx:id="back" layoutX="36.0" layoutY="106.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Label layoutX="57.0" layoutY="14.0" prefHeight="51.0" prefWidth="188.0" text="LIBRARY">
+         <font>
+            <Font name="Arial Black" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="error" layoutX="36.0" layoutY="151.0" prefHeight="17.0" prefWidth="233.0" />
+   </children>
+</AnchorPane>

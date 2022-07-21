@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="593.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.AdminUsers">
+   <children>
+      <Label layoutX="337.0" layoutY="14.0" prefHeight="31.0" prefWidth="74.0" text="ADMIN">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Text layoutX="314.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Settings">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TabPane layoutX="-1.0" layoutY="76.0" prefHeight="519.0" prefWidth="804.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="All Users">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="447.0" prefWidth="735.0">
+                     <children>
+                        <TableView fx:id="AUtable" layoutX="14.0" onMouseClicked="#selectUserFromAllUsers" prefHeight="471.0" prefWidth="459.0">
+                          <columns>
+                            <TableColumn fx:id="AUname" prefWidth="147.0" text="Name" />
+                            <TableColumn fx:id="AUcontact" prefWidth="144.0" text="Contact" />
+                              <TableColumn fx:id="AUdate" prefWidth="167.0" text="Date" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="AUbtnremove" layoutX="594.0" layoutY="148.0" mnemonicParsing="false" onAction="#removeFromAllUsers" text="Remove" />
+                        <TextField fx:id="AUtfenterName" layoutX="549.0" layoutY="117.0" onKeyTyped="#searchfromAllUsers" promptText="Search by name" />
+                        <Label fx:id="AUerror" layoutX="549.0" layoutY="89.0" prefHeight="17.0" prefWidth="208.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Issued Books">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="ibTextField" layoutX="581.0" layoutY="123.0" onKeyTyped="#searchFromIssuedBooks" promptText="Search by name" />
+                        <TableView fx:id="ibTable" layoutX="14.0" layoutY="8.0" prefHeight="475.0" prefWidth="538.0">
+                          <columns>
+                            <TableColumn fx:id="ibName" prefWidth="116.0" text="User Name" />
+                            <TableColumn fx:id="ibBooks" prefWidth="152.0" text="Book" />
+                              <TableColumn fx:id="ibDateIssued" prefWidth="174.0" text="Date Issued" />
+                              <TableColumn fx:id="ibDaysToReturn" prefWidth="95.0" text="Days to return" />
+                          </columns>
+                        </TableView>
+                        <Label fx:id="ibError" layoutX="581.0" layoutY="159.0" prefHeight="17.0" prefWidth="205.0" />
+                        <Label layoutX="561.0" layoutY="309.0" prefHeight="54.0" prefWidth="131.0" text="*Days to return if negative means book is overdue" wrapText="true" />
+                        <Label layoutX="581.0" layoutY="100.0" text="Search User" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Fined Users">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableFine" layoutX="19.0" layoutY="16.0" onMouseClicked="#setTextInSearchFine" prefHeight="456.0" prefWidth="438.0">
+                          <columns>
+                            <TableColumn fx:id="TcfineUserName" prefWidth="121.0" text="User name" />
+                            <TableColumn fx:id="TcfineAmount" prefWidth="81.0" text="Fine Amount" />
+                              <TableColumn fx:id="TcfineReason" prefWidth="235.0" text="Fine Reason" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="541.0" layoutY="72.0" prefHeight="31.0" prefWidth="145.0" text="Search" />
+                        <TextField fx:id="TfSearchFine" layoutX="541.0" layoutY="103.0" onKeyTyped="#setDataInFineTable" />
+                        <Button fx:id="BtnRemoveFine" layoutX="574.0" layoutY="138.0" mnemonicParsing="false" onAction="#setBtnRemoveFine" text="Remove Fine" />
+                        <Label fx:id="labelFineSearch" layoutX="542.0" layoutY="55.0" prefHeight="17.0" prefWidth="202.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Issue Requests">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="irTable" layoutX="23.0" layoutY="14.0" prefHeight="412.0" prefWidth="463.0">
+                          <columns>
+                            <TableColumn fx:id="irUserName" prefWidth="172.0" text="User Name" />
+                            <TableColumn fx:id="irBook" prefWidth="189.0" text="Book" />
+                              <TableColumn fx:id="irCopiesAvailible" prefWidth="104.0" text="Copies Availible" />
+                          </columns>
+                        </TableView>
+                        <ButtonBar layoutX="557.0" layoutY="140.0" prefHeight="40.0" prefWidth="0.0">
+                          <buttons>
+                            <Button fx:id="btnIRAccept" mnemonicParsing="false" onAction="#setBtnIRAccept" text="Accept" />
+                              <Button fx:id="btnIRDelete" mnemonicParsing="false" onAction="#setBtnIRDelete" text="Delete" />
+                          </buttons>
+                        </ButtonBar>
+                        <Label fx:id="irError" layoutX="406.0" layoutY="163.0" prefHeight="17.0" prefWidth="171.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Assign new Fine">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="VBoxCheckBox" layoutX="72.0" layoutY="42.0" onMouseClicked="#setOnCheckBoxClicked" prefHeight="200.0" prefWidth="199.0" spacing="15.0">
+                           <children>
+                              <CheckBox fx:id="CbBrokenBinding" mnemonicParsing="false" onMouseClicked="#setOnCheckBoxClicked" text="Broken Binding - 30%" />
+                              <CheckBox fx:id="CbExcessiveWriting" mnemonicParsing="false" onMouseClicked="#setOnCheckBoxClicked" text="Excessive Writing - 30%" />
+                              <CheckBox fx:id="CbMissingBarcode" mnemonicParsing="false" onMouseClicked="#setOnCheckBoxClicked" text="Missing Barcode - 15%" />
+                              <CheckBox fx:id="CbTornPages" mnemonicParsing="false" onMouseClicked="#setOnCheckBoxClicked" text="Torn Pages - 70%" />
+                              <CheckBox fx:id="CbWaterDamage" mnemonicParsing="false" onMouseClicked="#setOnCheckBoxClicked" text="Water Damage - 70%" />
+                              <CheckBox fx:id="CbBookLost" mnemonicParsing="false" onMouseClicked="#setOnCheckBoxClicked" text="Book Lost - 120%+" />
+                           </children>
+                        </VBox>
+                        <Label layoutX="406.0" layoutY="28.0" prefHeight="26.0" prefWidth="197.0" text="Total % - Compared to book price">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="TfTotalPercentage" layoutX="429.0" layoutY="61.0" />
+                        <TextField fx:id="TfBookPrice" layoutX="428.0" layoutY="129.0" />
+                        <Text layoutX="460.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Book price" />
+                        <Button fx:id="BtnCalculateFine" layoutX="458.0" layoutY="163.0" mnemonicParsing="false" onAction="#setBtnCalculateFine" text="Calculate Fine" />
+                        <TextField fx:id="TfCalculateFine" layoutX="428.0" layoutY="196.0" />
+                        <ListView fx:id="LvFineSearch" layoutX="71.0" layoutY="258.0" onMouseClicked="#listViewGetSelection" prefHeight="200.0" prefWidth="200.0" />
+                        <TextField fx:id="TfAssignFine" layoutX="281.0" layoutY="358.0" onKeyTyped="#setTextFieldSearchUser" promptText="Search User" />
+                        <Button fx:id="BtnSubmit" layoutX="313.0" layoutY="427.0" mnemonicParsing="false" onAction="#setBtnAssignFine" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: lightblue; -fx-border-color: black;" text="Assign Fine" />
+                        <TextArea fx:id="TaFineReason" layoutX="470.0" layoutY="310.0" prefHeight="121.0" prefWidth="200.0" promptText="Reason for fine...." wrapText="true" />
+                        <Label layoutX="506.0" layoutY="292.0" prefHeight="19.0" prefWidth="128.0" text="Give Reason for fine">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="TfFineAmount" layoutX="282.0" layoutY="383.0" promptText="Enter Fine Amount" />
+                        <Label fx:id="labelFineError" layoutX="278.0" layoutY="267.0" prefHeight="17.0" prefWidth="246.0" />
+                        <Label layoutX="423.0" layoutY="234.0" prefHeight="17.0" prefWidth="167.0" text="*Fine for book overdue is 500/-" underline="true" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="604.0" layoutY="29.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="62.0" text="Back" />
+   </children>
+</AnchorPane>
